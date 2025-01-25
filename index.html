@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Guru - Your Trusted Financial Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        // Function to automatically focus the barcode input field
+        function focusSearchInput() {
+            const searchInput = document.getElementById('search');
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+
+        // Function to print the financial report
+        function printReport() {
+            window.print();
+        }
+
+        // Automatically focus the input field when the page loads
+        window.onload = focusSearchInput;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="finance.png" alt="Finance Guru Logo">
+                    </a>                                    
+                </li>
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5000">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-item">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                        <span class="nav-item">Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h2>Welcome to Finance Guru</h2>
+            <p>Your trusted partner in financial success. Let us help you navigate the world of investments, savings, and financial planning.</p>
+
+            <!-- Images Section -->
+            <div class="image-section">
+                <img src="side.png" alt="Side Image" class="image-left">
+                <img src="ai-financial-advisor.png" alt="AI Financial Advisor" class="image-right">
+            </div>
+
+            <!-- Financial Services Overview -->
+            <div class="services-overview">
+                <center><h3>Our Services</h3></center>
+                <ul>
+                    <li>
+                        <a href="investment-planning.html" target="service.html" rel="noopener noreferrer">
+                            Investment Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a href="retirement-planning.html" target="_blank" rel="noopener noreferrer">
+                            Retirement Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tax-strategy.html" target="_blank" rel="noopener noreferrer">
+                            Tax Strategy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wealth-management.html" target="_blank" rel="noopener noreferrer">
+                            Wealth Management
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with social media links -->
+    <footer>
+        <div class="social-media">
+            <a href="https://twitter.com/FinanceGuru123" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+                <span>@FinanceGuru123</span>
+            </a>
+            <a href="https://instagram.com/financeguru_456" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+                <span>@financeguru_456</span>
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+                <span>+123 456 7890</span>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

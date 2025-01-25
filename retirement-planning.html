@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Planning - Finance Guru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Import Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Body Style */
+        body {
+            background: rgb(242, 242, 242);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container & Content */
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-left: 80px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            height: 100%;
+            width: 80px;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        nav:hover {
+            width: 220px;
+        }
+
+        .logo {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            transition: justify-content 0.3s ease;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            transition: width 0.4s, height 0.4s;
+        }
+
+        nav:hover .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-size: 16px;
+            color: #2c3e50;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .nav-item {
+            margin-left: 15px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav:hover .nav-item {
+            opacity: 1;
+        }
+
+        a:hover {
+            background-color: #ecf0f1;
+            color: #34af6d;
+        }
+
+        a:hover i {
+            color: #34af6d;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        /* Main Content Styling */
+        .main-content h2, .main-content h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .sub-section {
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .social-icon:hover {
+            color: #34AF6D;
+        }
+
+        .social-icon span {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .social-icon:hover span {
+            color: #34AF6D;
+        }
+
+        /* Enable scrolling for the content */
+        .main-content {
+            overflow-y: auto;
+        }
+
+        /* Calculator Styles */
+        .calculator {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator input,
+        .calculator select {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .calculator button {
+            background-color: #34AF6D;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculator button:hover {
+            background-color: #28a745;
+        }
+
+        .calculator .result {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="finance.png" alt="Finance Guru Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5000">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-item">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Retirement Planning</h2>
+            <p>
+                Retirement planning is key to ensuring a financially secure future. Start planning early to ensure your savings grow over time.
+            </p>
+            
+            <!-- Add Image -->
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="retire.png" alt="Retirement Planning" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            </div>
+
+            <!-- New Section -->
+            <div class="sub-section">
+                <h3>Investing in Penny Stocks</h3>
+                <p>
+                    Penny stocks refer to shares of small companies that trade at low prices, typically below INR 10. 
+                    They are considered high-risk investments due to their volatility and potential for high returns.
+                </p>
+
+                <!-- Penny Stock Table -->
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 12px; background-color: #34AF6D; color: white; text-align: left;">Sr No</th>
+                            <th style="padding: 12px; background-color: #34AF6D; color: white; text-align: left;">Penny Stock</th>
+                            <th style="padding: 12px; background-color: #34AF6D; color: white; text-align: left;">CMP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">1</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Monotype India</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹1.30</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">2</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">BITS</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹18.14</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">3</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Empower India</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹1.97</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">4</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Blue Chip India</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹9.15</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">5</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Indian Infotech and Software Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹1.34</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">6</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Accuracy Shipping Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹9.99</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">7</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Goyal Aluminiums Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹9.33</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">8</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Taparia Tools Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹7.96</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">9</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Suzlon Energy Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹57.17</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">10</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">Vikas Ecotech Ltd</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">₹3.45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Calculator Section -->
+            <div class="calculator">
+                <h3>Investment Calculator</h3>
+                <select id="stockSelect">
+                    <option value="" disabled selected>Select a Stock</option> <!-- Placeholder option -->
+                    <option value="1.30">Monotype India</option>
+                    <option value="18.14">BITS</option>
+                    <option value="1.97">Empower India</option>
+                    <option value="9.15">Blue Chip India</option>
+                    <option value="1.34">Indian Infotech and Software Ltd</option>
+                    <option value="9.99">Accuracy Shipping Ltd</option>
+                    <option value="9.33">Goyal Aluminiums Ltd</option>
+                    <option value="7.96">Taparia Tools Ltd</option>
+                    <option value="57.17">Suzlon Energy Ltd</option>
+                    <option value="3.45">Vikas Ecotech Ltd</option>
+                </select>                
+                <input type="number" id="noOfShares" placeholder="No. of shares" />
+                <button onclick="calculateInvestment()">Calculate</button>
+                <div class="result" id="result"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-media">
+            <div class="social-icon">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </div>
+            <div class="social-icon">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+            </div>
+            <div class="social-icon">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function calculateInvestment() {
+            const stockPrice = parseFloat(document.getElementById('stockSelect').value);
+            const noOfShares = parseInt(document.getElementById('noOfShares').value);
+            if (!noOfShares || noOfShares <= 0) {
+                alert("Please enter a valid number of shares.");
+                return;
+            }
+            const totalInvestment = stockPrice * noOfShares;
+            document.getElementById('result').innerHTML = `Total Investment: ₹${totalInvestment.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

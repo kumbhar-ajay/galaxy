@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Strategy for Stocks - Finance Guru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Import Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Body Style */
+        body {
+            background: rgb(242, 242, 242);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Container & Content */
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-left: 80px;
+            transition: margin-left 0.4s ease, box-shadow 0.3s ease;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 80px;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        nav:hover {
+            width: 220px;
+        }
+
+        .logo {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            transition: justify-content 0.3s ease;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            transition: width 0.4s, height 0.4s;
+        }
+
+        nav:hover .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-size: 16px;
+            color: #2c3e50;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .nav-item {
+            margin-left: 15px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav:hover .nav-item {
+            opacity: 1;
+        }
+
+        a:hover {
+            background-color: #ecf0f1;
+            color: #34af6d;
+        }
+
+        a:hover i {
+            color: #34af6d;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        /* Main Content Styling */
+        .main-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .main-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .main-content ul {
+            margin: 15px 0 30px 20px;
+        }
+
+        .main-content ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        /* Input and Button Section */
+        .amount-input-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .amount-input-section input, 
+        .amount-input-section select {
+            flex: 1;
+            max-width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .amount-input-section button {
+            padding: 10px 20px;
+            background-color: #34af6d;
+            color: white;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .amount-input-section button:hover {
+            background-color: #2c9a5c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .social-icon:hover {
+            color: #34AF6D;
+        }
+
+        .social-icon span {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .social-icon:hover span {
+            color: #34AF6D;
+        }
+
+        /* Image Styling */
+        .tax-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chatbox */
+#chatbox {
+    position: fixed;
+    bottom: 70px; /* Adjusted to avoid overlap with the button */
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none; /* Hide chatbox by default */
+    flex-direction: column;
+    padding: 15px;
+    z-index: 5; /* Make sure the chatbox appears below the button */
+}
+
+        #chat-window {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #34af6d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2c9a5c;
+        }
+
+        /* Taxbot Button */
+#taxbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #34af6d;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 10; /* Ensure Taxbot button is above the chatbox */
+}
+
+#taxbot-button:hover {
+    background-color: #2c9a5c;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="finance.png" alt="Finance Guru Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5000">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-item">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Tax Strategy for Stocks</h2>
+            <p>
+                A solid tax strategy can help you maximize your investment returns. In this section, we’ll explore how to minimize tax liabilities when investing in stocks, using strategies like tax-loss harvesting, long-term capital gains, and optimizing dividend income.
+            </p>
+            
+            <!-- Image Placement -->
+            <img src="tax.png" alt="Tax Strategy" class="tax-image">
+
+            <section>
+                <h3>Why Tax Strategy Matters</h3>
+                <p>
+                    A well-planned tax strategy can significantly increase your after-tax returns. Understanding how to minimize taxes on capital gains, dividends, and stock sales is essential for a successful investment journey.
+                </p>
+            </section>
+
+            <section>
+                <h3>Tax Strategy Options</h3>
+                <ul>
+                    <li>Holding stocks for the long-term to benefit from lower long-term capital gains tax rates</li>
+                    <li>Investing in tax-efficient funds or stocks with qualified dividends</li>
+                    <li>Using tax-loss harvesting to offset gains with losses</li>
+                    <li>Choosing tax-advantaged accounts for investment (e.g., PPF, EPF, NPS in India)</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- Taxbot Button -->
+    <div id="taxbot-button" onclick="toggleChatbox()">Taxbot</div>
+
+    <!-- Chatbox -->
+    <div id="chatbox">
+        <div id="chat-window">
+            <div id="chat-content"></div>
+        </div>
+        <input type="text" id="user-input" placeholder="Ask a tax-related question...">
+        <button onclick="getResponse()">Send</button>
+    </div>
+
+    <script>
+        const responses = {
+            "What is tax-loss harvesting?": "Tax-loss harvesting is a strategy where investors sell securities at a loss to offset a capital gains tax liability.",
+            "How can I minimize capital gains tax?": "You can minimize capital gains tax by holding investments for the long-term, utilizing tax-advantaged accounts, and utilizing tax-loss harvesting.",
+            "What is long-term capital gains tax?": "Long-term capital gains tax is applied to investments held for over a year, and typically has a lower tax rate than short-term capital gains.",
+            "What are qualified dividends?": "Qualified dividends are dividends that meet specific criteria to be taxed at a lower rate than ordinary dividends.",
+            "What are tax-advantaged accounts?": "Tax-advantaged accounts, such as 401(k)s, IRAs, and HSAs, provide tax benefits, either by deferring taxes or offering tax-free withdrawals."
+        };
+
+        function toggleChatbox() {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.style.display = chatbox.style.display === 'none' || chatbox.style.display === '' ? 'flex' : 'none';
+        }
+
+        function getResponse() {
+            const userInput = document.getElementById('user-input').value;
+            const chatContent = document.getElementById('chat-content');
+
+            if (userInput.trim() === "") {
+                return;
+            }
+
+            // Display user message
+            chatContent.innerHTML += `<div><b>You:</b> ${userInput}</div>`;
+            
+            // Display chatbot response
+            const botResponse = responses[userInput] || "Sorry, I don't have an answer to that. Please consult a tax professional.";
+            chatContent.innerHTML += `<div><b>Finance Guru Bot:</b> ${botResponse}</div>`;
+            
+            // Clear input field and scroll chat to the bottom
+            document.getElementById('user-input').value = "";
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-media">
+            <a href="https://twitter.com/FinanceGuru123" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+                <span>@FinanceGuru123</span>
+            </a>
+            <a href="https://instagram.com/financeguru_456" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+                <span>@financeguru_456</span>
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+                <span>+123 456 7890</span>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Planning - Finance Guru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Import Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Body Style */
+        body {
+            background: rgb(242, 242, 242);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Container & Content */
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-left: 80px;
+            transition: margin-left 0.4s ease, box-shadow 0.3s ease;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 80px;
+            background: #fff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        nav:hover {
+            width: 220px;
+        }
+
+        .logo {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            transition: justify-content 0.3s ease;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            transition: width 0.4s, height 0.4s;
+        }
+
+        nav:hover .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-size: 16px;
+            color: #2c3e50;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .nav-item {
+            margin-left: 15px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav:hover .nav-item {
+            opacity: 1;
+        }
+
+        a:hover {
+            background-color: #ecf0f1;
+            color: #34af6d;
+        }
+
+        a:hover i {
+            color: #34af6d;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        /* Main Content Styling */
+        .main-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .main-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .main-content ul {
+            margin: 15px 0 30px 20px;
+        }
+
+        .main-content ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        /* Input and Button Section */
+ 
+    .amount-input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.amount-input-section input, 
+.amount-input-section select {
+    flex: 1;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.amount-input-section button {
+    padding: 10px 20px;
+    background-color: #34af6d;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.amount-input-section button:hover {
+    background-color: #2c9a5c;
+}
+
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .social-icon:hover {
+            color: #34AF6D;
+        }
+
+        .social-icon span {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .social-icon:hover span {
+            color: #34AF6D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="finance.png" alt="Finance Guru Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5000">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-item">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Investment Planning</h2>
+            <p>
+                Investment planning is a critical component of financial success. Our goal is to help you 
+                achieve your financial goals by creating a strategic plan tailored to your unique needs.
+            </p>
+
+            <section>
+                <h3>Why Investment Planning Matters</h3>
+                <p>
+                    Effective investment planning ensures that your money works as hard as you do. By 
+                    understanding market trends, diversifying your portfolio, and aligning investments with 
+                    your risk tolerance, you can build a strong financial future.
+                </p>
+            </section>
+
+            <section>
+                <h3>Our Approach</h3>
+                <ul>
+                    <li>Assessing your current financial situation</li>
+                    <li>Understanding your long-term and short-term goals</li>
+                    <li>Recommending a personalized investment strategy</li>
+                    <li>Monitoring and adjusting your portfolio regularly</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Ready To Invest Smartly?</h3>
+                <p>Let us know about your comfortable amount and sector of interest for investing.</p>
+                <div class="amount-input-section">
+                    <input type="number" id="investment-amount" placeholder="Enter amount in INR" min="0" />
+                    <select id="investment-sector">
+                        <option value="" disabled selected>Select Sector</option>
+                        <option value="medical">Medical</option>
+                        <option value="it">IT</option>
+                        <option value="ev">EV</option>
+                        <option value="solar">Solar</option>
+                        <option value="steel">Steel</option>
+                    </select>
+                    <button id="recommend-stocks" onclick="recommendStocks()">Recommend Stocks</button>
+                </div>
+                <div id="stock-recommendations" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 6px; display: none;">
+                    <h4>Recommended Stocks:</h4>
+                    <ul id="recommendation-list" style="list-style: none; padding: 0;"></ul>
+                </div>
+            </section>          
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-media">
+            <a href="https://twitter.com/FinanceGuru123" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+                <span>@FinanceGuru123</span>
+            </a>
+            <a href="https://instagram.com/financeguru_456" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+                <span>@financeguru_456</span>
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+                <span>+123 456 7890</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+    async function recommendStocks() {
+    const amount = document.getElementById("investment-amount").value;
+    const sector = document.getElementById("investment-sector").value;
+    const recommendationList = document.getElementById("recommendation-list");
+    const recommendationsDiv = document.getElementById("stock-recommendations");
+
+    // Reset recommendations
+    recommendationList.innerHTML = "";
+    recommendationsDiv.style.display = "none";
+
+    // Validate input
+    if (!amount || amount <= 0) {
+        alert("Please enter a valid investment amount greater than 0.");
+        return;
+    }
+    if (!sector) {
+        alert("Please select a sector for investment.");
+        return;
+    }
+
+    // Fetch stock data from stock_names.html
+    try {
+        const response = await fetch("stock_names.html");
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, "text/html");
+        const stocks = doc.querySelectorAll(`.${sector} .stock`);
+
+        let stockOptions = [];
+        stocks.forEach(stock => {
+            const stockName = stock.querySelector(".name").textContent;
+            const stockPrice = parseFloat(stock.querySelector(".price").textContent);
+            stockOptions.push({ name: stockName, price: stockPrice });
+        });
+
+        console.log("Stock Options:", stockOptions); // Debugging log
+
+        // Check if there are enough stocks to form combinations
+        if (stockOptions.length < 3) {
+            alert("There are not enough stocks in the selected sector to form combinations.");
+            return;
+        }
+
+        // Generate all combinations of 3 stocks and filter by total price
+        let possibleCombinations = [];
+        for (let i = 0; i < stockOptions.length; i++) {
+            for (let j = i + 1; j < stockOptions.length; j++) {
+                for (let k = j + 1; k < stockOptions.length; k++) {
+                    let combination = [stockOptions[i], stockOptions[j], stockOptions[k]];
+                    let totalPrice = combination.reduce((acc, stock) => acc + stock.price, 0);
+
+                    if (totalPrice <= amount) {
+                        possibleCombinations.push({ combination, totalPrice });
+                    }
+                }
+            }
+        }
+
+        // If combinations found, display them
+        if (possibleCombinations.length > 0) {
+            const combinationHTML = possibleCombinations.slice(0, 3).map(({ combination, totalPrice }) => {
+                const stocksHTML = combination.map(stock => {
+                    return <div>${stock.name}: ₹${stock.price}</div>;
+                }).join("");
+                return `
+                    <div style="margin-bottom: 20px;">
+                        ${stocksHTML}
+                        <strong>Total Cost: ₹${totalPrice}</strong>
+                    </div>
+                `;
+            }).join("");
+            recommendationList.innerHTML = combinationHTML;
+            recommendationsDiv.style.display = "block";
+        } else {
+            // If no valid combinations, show individual stocks within budget
+            const availableStocks = stockOptions.filter(stock => stock.price <= amount);
+            if (availableStocks.length > 0) {
+                const stockHTML = availableStocks.map(stock => {
+                    return <div>${stock.name}: ₹${stock.price}</div>;
+                }).join("<br> OR <br>");
+                recommendationList.innerHTML = stockHTML;
+                recommendationsDiv.style.display = "block";
+            } else {
+                alert("No stocks available within the entered budget for the selected sector.");
+            }
+        }
+    } catch (error) {
+        console.error("Error fetching stock data:", error);
+        alert("Failed to fetch stock data. Please try again later.");
+    }
+}
+
+</script>
+
+    
+    
+</body>
+</html>
