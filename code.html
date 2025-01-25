@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Guru - Your Trusted Financial Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        // Function to automatically focus the barcode input field
+        function focusSearchInput() {
+            const searchInput = document.getElementById('search');
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+
+        // Function to print the financial report
+        function printReport() {
+            window.print();
+        }
+
+        // Automatically focus the input field when the page loads
+        window.onload = focusSearchInput;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="finance.png" alt="Finance Guru Logo">
+                    </a>                                    
+                </li>
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item">Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-item">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                        <span class="nav-item">Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h2>Welcome to Finance Guru</h2>
+            <p>Your trusted partner in financial success. Let us help you navigate the world of investments, savings, and financial planning.</p>
+
+            <!-- Financial Search Form -->
+            <form method="POST" action="index.php">
+                <!-- <div class="search-section"> -->
+                    <!-- <input type="text" id="search" name="search" size="40px" placeholder="Search for financial advice or services" required> -->
+                    <!-- <button type="submit">Search</button> -->
+                <!-- </div> -->
+            </form>
+
+            <!-- Financial Services Overview -->
+            <div class="services-overview">
+                <h3>Our Services</h3>
+                <ul>
+                    <li>
+                        <a href="investment-planning.html" target="service.html" rel="noopener noreferrer">
+                            Investment Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a href="retirement-planning.html" target="_blank" rel="noopener noreferrer">
+                            Retirement Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tax-strategy.html" target="_blank" rel="noopener noreferrer">
+                            Tax Strategy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wealth-management.html" target="_blank" rel="noopener noreferrer">
+                            Wealth Management
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <!-- Financial Advice Table 
+            <table id="financialAdviceTable">
+                <thead>
+                    <tr>
+                        <th>Advisor</th>
+                        <th>Specialization</th>
+                        <th>Contact</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>-->
+                    <!-- Example Data, you can add dynamic data from the server 
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Investment Advisor</td>
+                        <td>john@financeguru.com</td>
+                        <td>Mon-Fri, 9am - 5pm</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Retirement Specialist</td>
+                        <td>jane@financeguru.com</td>
+                        <td>Mon-Fri, 10am - 4pm</td>
+                    </tr>
+                </tbody>
+            </table>-->
+
+            <!-- Print Button 
+            <div class="print-section">
+                <button type="button" onclick="printReport()">Print Financial Report</button>
+            </div>-->
+        </div>
+    </div>
+</body>
+</html>

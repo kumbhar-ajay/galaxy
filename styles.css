@@ -1,0 +1,491 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: rgb(242, 242, 242); /* Light background for a professional look */
+}
+
+nav {
+  position: sticky;
+  top: 0;/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body Style */
+body {
+  background: rgb(242, 242, 242); /* Light background for a professional look */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333; /* Soft text color */
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 80px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+nav:hover {
+  width: 220px;
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  transition: justify-content 0.3s ease;
+}
+
+nav:hover .logo {
+  justify-content: center;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: width 0.4s, height 0.4s;
+}
+
+nav:hover .logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+nav:hover .logo span {
+  opacity: 1;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 16px;
+  color: #2c3e50;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+nav .fas {
+  width: 60px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.nav-item {
+  margin-left: 15px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+nav:hover .nav-item {
+  opacity: 1;
+}
+
+a:hover {
+  background-color: #ecf0f1;
+  color: #34af6d; /* Green on hover */
+}
+
+a:hover i {
+  color: #34af6d; /* Green on icon hover */
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+/* Container & Content */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: 70px;
+  transition: margin-left 0.4s ease, box-shadow 0.3s ease;
+}
+
+nav:hover + .main-content {
+  margin-left: 250px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #34495e;
+  line-height: 1.7;
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #34af6d;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #28a745; /* Darker green on hover */
+}
+
+.services-overview {
+  margin-top: 30px;
+}
+
+.services-overview h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.services-overview ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.services-overview li {
+  margin: 10px 0;
+}
+
+.services-overview li a {
+  font-size: 18px;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.services-overview li a:hover {
+  color: #34af6d;
+  text-decoration: underline;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f8f8f8;
+  color: #2c3e50;
+}
+
+td {
+  background-color: #fff;
+  color: #34495e;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.print-section {
+  position: sticky;
+  bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  z-index: 10;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.print-section button {
+  padding: 12px 25px;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.print-section button:hover {
+  background-color: #e67e22;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    width: 60px;
+  }
+
+  nav:hover {
+    width: 180px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .services-overview h3 {
+    font-size: 20px;
+  }
+
+  .services-overview li a {
+    font-size: 16px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
+
+  height: 100vh;
+  width: 90px;
+  background: #fff;
+  overflow: hidden;
+  transition: width 1s, left 1s;
+  margin: 0; /* Ensure no margin is applied */
+}
+
+nav:hover {
+  width: 220px;
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0;
+  padding-bottom: 3rem;
+  transition: margin-left 1s, justify-content 1s;
+}
+
+nav:hover .logo {
+  justify-content: center;
+  margin-left: 0;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: width 0.3s, height 0.3s;
+}
+
+nav:hover .logo img {
+  width: 120px;
+  height: 120px;
+}
+
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+nav:hover .logo span {
+  opacity: 1;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+  color: rgb(85, 83, 83);
+  transition: background 0.5s;
+}
+
+nav .fas {
+  width: 70px;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  transition: color 0.5s;
+}
+
+.nav-item {
+  margin-left: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+nav:hover .nav-item {
+  opacity: 1;
+}
+
+a:hover {
+  background: #eee;
+}
+
+a:hover i {
+  color: #34AF6D;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  margin: 0; /* Remove any default margin */
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  margin: 0; /* Remove margin that might cause blank space */
+  margin-left: 70px; /* Match the width of the navigation bar */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: margin-left 1s;
+}
+
+nav:hover + .main-content {
+  margin-left: 10px; /* Adjust margin to match expanded navigation width */
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 32px; /* Larger heading for impact */
+  color: #2c3e50; /* Darker color for readability */
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #34495e; /* Professional grayish text color */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #34AF6D; /* Green for positive, financial connotation */
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #28a745; /* Darker green on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-size: 16px;
+}
+
+td {
+  font-size: 14px;
+}
+
+.print-section {
+  position: sticky;
+  bottom: 20px;
+  background: #fff;
+  padding: 10px;
+  z-index: 10;
+  border-top: 1px solid #ddd;
+}
+
+.print-section button {
+  padding: 10px 20px;
+  background-color: #f39c12; /* Orange for print action */
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-section button:hover {
+  background-color: #e67e22; /* Darker orange on hover */
+}
