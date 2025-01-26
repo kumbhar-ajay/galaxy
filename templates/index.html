@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8fafc;
+        }
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #stockDetails {
+            margin-top: 20px;
+        }
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="p-6">
+    <div class="header">
+        
+        <!-- <h1 class="text-3xl font-bold text-blue-600"><a herf ="../index.html">GO BACK</a></a></h1> -->
+        <h1 class="text-3xl font-bold text-blue-600">Stock Price Prediction (₹)</h1>
+        <p class="text-gray-500">View stock price predictions in Indian Rupees (INR)</p>
+    </div>
+
+    <div class="flex justify-center mb-6">
+        <select id="stockDropdown" class="p-2 border rounded" onchange="fetchStockData()">
+    <option value="">Select Stock</option>
+
+    <!-- Technology Sector -->
+    <optgroup label="Technology (IT)">
+        <option value="INFY">Infosys (INFY)</option>
+        <option value="TCS">Tata Consultancy Services (TCS)</option>
+        <option value="WIT">Wipro (WIT)</option>
+        <option value="MSFT">Microsoft (MSFT)</option>
+        <option value="GOOG">Google (GOOG)</option>
+        <option value="IBM">IBM Corporation (IBM)</option>
+        <option value="ADBE">Adobe Inc. (ADBE)</option>
+        <option value="ORCL">Oracle Corporation (ORCL)</option>
+        <option value="CSCO">Cisco Systems (CSCO)</option>
+        <option value="INTC">Intel Corporation (INTC)</option>
+    </optgroup>
+
+    <!-- Banking and Finance -->
+    <optgroup label="Banking and Finance">
+        <option value="IBN">ICICI Bank (IBN)</option>
+        <option value="HDB">HDFC Bank (HDB)</option>
+    </optgroup>
+
+    <!-- Automotive Sector -->
+    <optgroup label="Automotive">
+        <option value="TTM">Tata Motors (TTM)</option>
+        <option value="TSLA">Tesla (TSLA)</option>
+    </optgroup>
+
+    <!-- Energy Sector -->
+    <optgroup label="Energy">
+        <option value="VEDL">Vedanta Resources (VEDL)</option>
+        <option value="ADANIGREEN">Adani Green Energy (via GDR)</option>
+    </optgroup>
+
+    <!-- Travel and Hospitality -->
+    <optgroup label="Travel and Hospitality">
+        <option value="MMYT">MakeMyTrip (MMYT)</option>
+    </optgroup>
+
+    <!-- Retail and E-commerce -->
+    <optgroup label="Retail and E-commerce">
+        <option value="AMZN">Amazon (AMZN)</option>
+    </optgroup>
+
+    <!-- Telecommunications -->
+    <optgroup label="Telecommunications">
+        <option value="BHARTIARTL">Bharti Airtel (via GDR)</option>
+    </optgroup>
+
+    <!-- Healthcare and Pharma -->
+    <optgroup label="Healthcare and Pharma">
+        <option value="RDY">Dr. Reddy's Laboratories (RDY)</option>
+    </optgroup>
+
+    <!-- Entertainment and Media -->
+    <optgroup label="Entertainment and Media">
+        <option value="NFLX">Netflix (NFLX)</option>
+        <option value="META">Meta Platforms (META)</option>
+    </optgroup>
+</select>
+
+
+    </div>
+
+    <div id="stockDetails" class="card max-w-4xl mx-auto">
+        <h3 id="stockName" class="text-xl font-semibold">Stock Details</h3>
+        <p id="stockPrice" class="text-lg">Price: ₹</p>
+        <p id="stockChange" class="text-lg">Change: ₹</p>
+        <canvas id="stockChart" class="mt-4"></canvas>
+        <p id="prediction" class="mt-4 text-gray-600"></p>
+    </div>
+
+    <script>
+        let stockChart = null;
+
+        function fetchStockData() {
+            const symbol = document.getElementById('stockDropdown').value;
+
+            if (!symbol) {
+                alert('Please select a stock!');
+                return;
+            }
+
+            console.log(`Fetching data for symbol: ${symbol}`);
+
+            fetch(`/stockData/${symbol}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching stock data: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Received data:', data);
+
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+
+                    // Update stock details
+                    document.getElementById('stockName').innerText = `Stock: ${data.name}`;
+                    document.getElementById('stockPrice').innerText = `Price: ₹${data.price.toFixed(2)}`;
+                    document.getElementById('stockChange').innerText = `Change: ₹${data.change.toFixed(2)}`;
+
+                    // Handle chart rendering
+                    const ctx = document.getElementById('stockChart').getContext('2d');
+
+                    // Destroy the previous chart instance if it exists
+                    if (stockChart) {
+                        stockChart.destroy();
+                    }
+
+                    // Create a new chart with both actual and predicted data
+                    stockChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: data.dates.concat(data.prediction_dates),
+                            datasets: [
+                                {
+                                    label: 'Actual Prices (Last Year)',
+                                    data: data.prices,
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                    borderWidth: 2,
+                                    fill: true,
+                                },
+                                {
+                                    label: 'Predicted Prices (Next Year)',
+                                    data: Array(data.prices.length).fill(null).concat(data.predicted_prices),
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderDash: [5, 5],
+                                    borderWidth: 2,
+                                    fill: false,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: `Stock Prices for ${data.name}`,
+                                },
+                            },
+                            scales: {
+                                x: { title: { display: true, text: 'Date' } },
+                                y: { title: { display: true, text: 'Price (₹)' } },
+                            },
+                        },
+                    });
+
+                    // Display prediction info
+                    document.getElementById('prediction').innerText = `Predicted Prices for the Next Year: Displayed in the red dashed line.`;
+                })
+                .catch(error => {
+                    console.error('Error fetching stock data:', error);
+                    alert('Failed to load stock data.');
+                });
+        }
+    </script>
+
+</body>
+</html>
