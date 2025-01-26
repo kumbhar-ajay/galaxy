@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Guru - Your Trusted Financial Advisor</title>
+    <title>Finance Guru - Analytics Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1; /* Ensures square images */
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
     <script>
-        // Function to automatically focus the barcode input field
+        // Function to focus the search input field
         function focusSearchInput() {
             const searchInput = document.getElementById('search');
             if (searchInput) {
                 searchInput.focus();
             }
-        }
-
-        // Function to print the financial report
-        function printReport() {
-            window.print();
         }
 
         // Automatically focus the input field when the page loads
@@ -63,40 +74,26 @@
         </nav>
 
         <div class="main-content">
-            <h2>Welcome to Finance Guru</h2>
-            <p>Your trusted partner in financial success. Let us help you navigate the world of investments, savings, and financial planning.</p>
+            <h2>Analytics Dashboard</h2>
+            <p>Explore detailed insights into market trends, stock performance, and financial data analysis.</p>
 
-            <!-- Images Section -->
-            <div class="image-section">
-                <img src="side.png" alt="Side Image" class="image-left">
-                <img src="ai-financial-advisor.png" alt="AI Financial Advisor" class="image-right">
-            </div>
-
-            <!-- Financial Services Overview -->
-            <div class="services-overview">
-                <center><h3>Our Services</h3></center>
-                <ul>
-                    <li>
-                        <a href="investment-planning.html" target="service.html" rel="noopener noreferrer">
-                            Investment Planning
-                        </a>
-                    </li>
-                    <li>
-                        <a href="retirement-planning.html" target="_blank" rel="noopener noreferrer">
-                            Retirement Planning
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tax-strategy.html" target="_blank" rel="noopener noreferrer">
-                            Tax Strategy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="wealth-management.html" target="_blank" rel="noopener noreferrer">
-                            Wealth Management
-                        </a>
-                    </li>
-                </ul>
+            <!-- Analytics Images Section -->
+            <div class="image-gallery">
+                <img src="assets/01 tata.jpg" alt="Tata">
+                <img src="assets/02 rama steel tube.jpg" alt="Rama Steel Tube">
+                <img src="assets/03 jsw.jpg" alt="JSW">
+                <img src="assets/04 tata motor.jpg" alt="Tata Motor">
+                <img src="assets/05 reliance.jpg" alt="Reliance">
+                <img src="assets/06 power grid.jpg" alt="Power Grid">
+                <img src="assets/07 adani green.jpg" alt="Adani Green">
+                <img src="assets/08 jsw energy.jpg" alt="JSW Energy">
+                <img src="assets/09 torrent power.jpg" alt="Torrent Power">
+                <img src="assets/10 reliance.jpg" alt="Reliance">
+                <img src="assets/11 sun pharma.jpg" alt="Sun Pharma">
+                <img src="assets/12 cipla.jpg" alt="Cipla">
+                <img src="assets/13 dr reddy lab.jpg" alt="Dr. Reddy Lab">
+                <img src="assets/14 deccan health.jpg" alt="Deccan Health">
+                <img src="assets/15 infosys & wipro.jpg" alt="Infosys & Wipro">
             </div>
         </div>
     </div>

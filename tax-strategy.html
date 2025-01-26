@@ -332,21 +332,17 @@
                 <li>
                     <a href="services.html">
                         <i class="fas fa-chart-line"></i>
-                        <span class="nav-item">Services</span>
+                        <span class="nav-item">Analytics</span>
                     </a>
                 </li>
                 <li>
-                    <a href="about.html">
-                        <i class="fas fa-info-circle"></i>
-                        <span class="nav-item">About Us</span>
+                    <a href="news.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span class="nav-item">News</span>
                     </a>
                 </li>
-                <li>
-                    <a href="logout.php" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a>
-                </li>
+
+
             </ul>
         </nav>
 
@@ -392,13 +388,74 @@
     </div>
 
     <script>
-        const responses = {
-            "What is tax-loss harvesting?": "Tax-loss harvesting is a strategy where investors sell securities at a loss to offset a capital gains tax liability.",
-            "How can I minimize capital gains tax?": "You can minimize capital gains tax by holding investments for the long-term, utilizing tax-advantaged accounts, and utilizing tax-loss harvesting.",
-            "What is long-term capital gains tax?": "Long-term capital gains tax is applied to investments held for over a year, and typically has a lower tax rate than short-term capital gains.",
-            "What are qualified dividends?": "Qualified dividends are dividends that meet specific criteria to be taxed at a lower rate than ordinary dividends.",
-            "What are tax-advantaged accounts?": "Tax-advantaged accounts, such as 401(k)s, IRAs, and HSAs, provide tax benefits, either by deferring taxes or offering tax-free withdrawals."
-        };
+       const responses = {
+    "What is tax-loss harvesting?": "Tax-loss harvesting is a strategy where investors sell securities at a loss to offset a capital gains tax liability.",
+    "How can I minimize capital gains tax?": "You can minimize capital gains tax by holding investments for the long-term, utilizing tax-advantaged accounts, and utilizing tax-loss harvesting.",
+    "What is long-term capital gains tax?": "Long-term capital gains tax is applied to investments held for over a year, and typically has a lower tax rate than short-term capital gains.",
+    "What are qualified dividends?": "Qualified dividends are dividends that meet specific criteria to be taxed at a lower rate than ordinary dividends.",
+    "What are tax-advantaged accounts?": "Tax-advantaged accounts, such as 401(k)s, IRAs, and HSAs, provide tax benefits, either by deferring taxes or offering tax-free withdrawals.",
+    
+    // Basics of Tax
+    "what is tax": "Tax is a financial charge or levy imposed by a government on individuals and entities to fund public services and programs.",
+    "What is income tax?": "Income tax is a tax levied by the government on the income of individuals and businesses.",
+    "What is corporate tax?": "Corporate tax is a tax on the profits of corporations or businesses.",
+    "What is property tax?": "Property tax is a tax on property, including real estate, based on the value of the property.",
+    "What is sales tax?": "Sales tax is a consumption tax levied on the sale of goods and services.",
+    "What is excise tax?": "Excise tax is a tax on specific goods, such as alcohol, tobacco, and gasoline.",
+    "What is estate tax?": "Estate tax is a tax imposed on the estate of a deceased person, based on the value of their estate.",
+    "What is a tax bracket?": "A tax bracket refers to the range of income that is taxed at a specific rate, often part of a progressive tax system.",
+    "What is tax withholding?": "Tax withholding is the process of an employer deducting taxes from an employee’s paycheck and sending it to the government.",
+    "What is tax filing?": "Tax filing is the process of submitting tax returns to the government, typically done annually to report income and taxes owed.",
+    "What is a tax return?": "A tax return is a form filed with the tax authorities to report income, deductions, and the amount of taxes owed or refunded.",
+    
+    // Basics of Stocks
+    "What is a stock?": "A stock represents a share in the ownership of a company and constitutes a claim on part of the company’s assets and earnings.",
+    "What is a stock market?": "A stock market is a marketplace where stocks and other securities are bought and sold.",
+    "What is the difference between stocks and bonds?": "Stocks represent ownership in a company, while bonds are a form of debt where investors lend money to the company and receive interest.",
+    "What is a dividend?": "A dividend is a payment made by a corporation to its shareholders, usually in the form of cash or additional shares.",
+    "What is a stock exchange?": "A stock exchange is an organized market where stocks, bonds, and other securities are bought and sold.",
+    "What is the S&P 500?": "The S&P 500 is an index of 500 of the largest publicly traded companies in the U.S., used to measure overall market performance.",
+    "What is a blue-chip stock?": "A blue-chip stock is a share in a company known for its stability, reliability, and history of consistent earnings.",
+    "What is a penny stock?": "A penny stock is a low-priced stock, often issued by small companies, with high volatility and risk.",
+    "What is a stock split?": "A stock split occurs when a company divides its existing shares into more shares, which typically reduces the price per share.",
+    "What is an IPO?": "An IPO (Initial Public Offering) is the process by which a private company offers its shares to the public for the first time.",
+    
+    // Tax and Stocks Relationship
+    "How are stocks taxed?": "Stocks are taxed on capital gains, which are the profits made from selling the stocks, and dividends, which are earnings paid to shareholders.",
+    "What is a capital gains tax?": "Capital gains tax is a tax on the profit made from the sale of an asset, such as a stock or real estate.",
+    "What is short-term capital gains tax?": "Short-term capital gains tax is the tax on profits from assets held for one year or less, typically taxed at a higher rate than long-term capital gains.",
+    "What is long-term capital gains tax?": "Long-term capital gains tax applies to profits from assets held for more than a year, often at a lower rate than short-term gains.",
+    "What is a dividend tax?": "A dividend tax is a tax imposed on dividends paid to shareholders, typically at a lower rate than ordinary income tax.",
+    "What are qualified dividends for tax purposes?": "Qualified dividends are dividends paid by U.S. corporations or qualified foreign corporations that are taxed at the long-term capital gains rate.",
+    "What is a tax bracket?": "A tax bracket is a range of income that is taxed at a specific rate, and it determines how much tax an individual or business will pay.",
+    "What is tax-efficient investing?": "Tax-efficient investing is a strategy aimed at minimizing taxes through the use of tax-advantaged accounts, tax-loss harvesting, and dividend optimization.",
+    "How can tax-advantaged accounts help me save on taxes?": "Tax-advantaged accounts like IRAs and 401(k)s allow investments to grow without being taxed until withdrawal, or in some cases, withdrawals are tax-free.",
+    "What is the tax treatment of stocks in an IRA?": "Stocks held in an IRA grow tax-deferred until withdrawals are made, and in Roth IRAs, withdrawals are tax-free if certain conditions are met.",
+    
+    // Basics of Finance
+    "What is diversification?": "Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio to reduce risk.",
+    "What is asset allocation?": "Asset allocation refers to how an investor distributes their investments across different asset classes like stocks, bonds, and cash.",
+    "What is a mutual fund?": "A mutual fund is a pool of funds from many investors to buy stocks, bonds, or other securities.",
+    "What is an ETF (Exchange-Traded Fund)?": "An ETF is a type of investment fund that holds a diversified portfolio of assets and is traded on an exchange like a stock.",
+    "What is a 401(k)?": "A 401(k) is a tax-advantaged retirement savings account offered by employers to employees in the U.S.",
+    "What is an IRA?": "An IRA (Individual Retirement Account) is a tax-advantaged account used for retirement savings.",
+    "What is a Roth IRA?": "A Roth IRA is a retirement account where contributions are made with after-tax money, and withdrawals are tax-free in retirement.",
+    "What is a traditional IRA?": "A traditional IRA allows individuals to contribute pre-tax income, which reduces taxable income in the year of the contribution.",
+    "What is a tax deduction?": "A tax deduction reduces your taxable income, which in turn reduces the amount of tax you owe.",
+    "What is a tax credit?": "A tax credit is a direct reduction in the amount of tax owed, as opposed to a tax deduction which reduces taxable income.",
+    
+    // Basic Questions Regarding Our Website
+    "What is Finance Guru?": "Finance Guru is your trusted financial advisor, providing tips, tools, and strategies to help you manage your finances and taxes effectively.",
+    "How can Finance Guru help with tax strategies?": "Finance Guru provides personalized tax strategies to minimize tax liabilities, including tax-loss harvesting, investment planning, and more.",
+    "What services does Finance Guru offer?": "Finance Guru offers services like tax planning, investment advice, retirement planning, and financial education.",
+    "Can I get financial advice from Finance Guru?": "Yes, Finance Guru offers personalized financial advice to help you with tax planning, stock investments, and general financial strategies.",
+    "How can I contact Finance Guru?": "You can contact Finance Guru through our website, or connect with us via email, phone, or social media.",
+    "What is the purpose of this website?": "This website aims to provide valuable information and tools to help you navigate taxes, stocks, and other financial matters effectively.",
+    "Is Finance Guru a trusted source?": "Yes, Finance Guru is a reliable platform with expert-backed advice to guide you in making sound financial decisions.",
+    "How can I start using Finance Guru?": "To start, simply create an account on our website, and begin accessing our resources on tax strategies, stocks, and more.",
+    "Does Finance Guru offer tools for tax calculation?": "Yes, Finance Guru offers various tools to help you calculate your taxes and optimize your financial strategies."
+};
+
 
         function toggleChatbox() {
             const chatbox = document.getElementById('chatbox');

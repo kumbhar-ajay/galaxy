@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live stock market data categorized by sectors: EV, IT, Medical, Steel, and Solar">
+    <meta name="keywords" content="Stock Market, EV Stocks, IT Stocks, Medical Stocks, Steel Stocks, Solar Stocks">
     <title>Stock Market Data</title>
     <style>
         body {
@@ -31,7 +33,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         table th, table td {
             border: 1px solid #ddd;
@@ -47,7 +49,29 @@
             background-color: #f4f4f4;
         }
         table tbody tr:hover {
-            background-color: #f1f1f1;
+            background-color: #e3f2fd;
+            cursor: pointer;
+        }
+        h2 {
+            margin-top: 40px;
+            color: #555;
+        }
+        .form-note {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+            .container {
+                padding: 10px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
@@ -55,8 +79,13 @@
     <div class="container">
         <div class="header">
             <h1>Stock Market Data</h1>
-            <p>Current stock prices categorized by sector</p>
+            <p>Browse stock prices by sector manually</p>
         </div>
+
+        <div class="form-note">
+            Please manually review the tables below to find stocks within your budget.
+        </div>
+
         <!-- EV Sector -->
         <h2>EV Sector</h2>
         <table>
@@ -68,16 +97,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Reliance power</td>
-                    <td>100</td>
+                    <td>Reliance Power</td>
+                    <td>38.52</td>
                 </tr>
                 <tr>
-                    <td>Tata power</td>
-                    <td>100</td>
+                    <td>Tata Power</td>
+                    <td>363.40</td>
                 </tr>
                 <tr>
                     <td>Power Grid Corporation</td>
-                    <td>100</td>
+                    <td>295.85</td>
                 </tr>
             </tbody>
         </table>
@@ -94,7 +123,7 @@
             <tbody>
                 <tr>
                     <td>Firstsource Soln</td>
-                    <td>368.90</td>
+                    <td>38.90</td>
                 </tr>
                 <tr>
                     <td>Wipro</td>
@@ -196,4 +225,3 @@
     </div>
 </body>
 </html>
-
